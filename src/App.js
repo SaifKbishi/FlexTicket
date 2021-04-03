@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import axios from 'axios'; 
+// import axios from 'axios'; 
 import NavBar from './components/NavBar';
 import About from './components/About';
 import Contact from './components/Contact';

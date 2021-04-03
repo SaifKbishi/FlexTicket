@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
 import '../css/tickets.css';
 
 const HomePage = () => {
@@ -8,6 +8,7 @@ const HomePage = () => {
    <div className="App" >     
    hello from HomePage
  
+   <button>Add to basket</button>
   </div>
   );
 }
