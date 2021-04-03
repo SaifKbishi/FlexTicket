@@ -20,24 +20,18 @@ const HomePage = () => {
 
  const renderEvents = results.map((event)=>{
   return(
-   <Card
-      cardClassName={'card'}
-      imgSrc={'https://picsum.photos/200/300'}
-      eventTitle={event.title}
-      eventId={event.id}
-      release_date={event.release_date}
-      poster_path={event.poster_path}
-     />
+   <Card 
+    eventTitle={event.title}
+    eventId={event.id}
+    release_date={event.release_date}
+    poster_path={event.poster_path}
+   />
   );
  });
 
   return (
-   document.title="Home Page",
+   document.title="FlexTickets - Home Page",
    console.log('28',results),
-   // console.log('29',results[1].id),
-   // console.log('30',results[1].title),
-   // console.log('31',results[1].overview),
-   // console.log('32',results[1].release_date),
    <div className="eventsContent" >     
     <h1>hello from HomePage, here will go a carusel</h1>
     <GenresCarousel/>

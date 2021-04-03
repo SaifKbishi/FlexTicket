@@ -16,6 +16,9 @@ const NavBar =()=> {
         <Link to="/Contact">
           <li>Contact-us</li>
         </Link>
+        <Link to="/UserDetails">
+          <li>Register / Login</li>
+        </Link>
       </ul>
     </nav>
   );

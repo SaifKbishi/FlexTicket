@@ -4,7 +4,7 @@ import '../css/tickets.css';
 const Confirmation = () => {
 
   return (
-   document.title="Confirmation",
+   document.title="FlexTickets - Confirmation",
    <div className="App" >
    hello from Confirmation
  
