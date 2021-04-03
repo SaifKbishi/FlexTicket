@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/tickets.css';
 
-function About() {
+const About = () => {
   return (
     <div className="App">
       <h1>About Us</h1>

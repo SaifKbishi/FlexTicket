@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/tickets.css';
 
-function Contact() {
+const Contact = ()=> {
   return (
     <div className="App">
       <h1>Contact Us</h1>

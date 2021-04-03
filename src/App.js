@@ -13,6 +13,7 @@ import Confirmation from './components/Confirmation';
 
 import logo from './logo.svg';
 import './App.css';
+import './css/tickets.css';
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
         <Route path="/Confirmation" component={Confirmation}/>
         <Route path="/Contact" component={Contact}/>
       </Switch>
-      <header className="App-header">
+      <header className="App-header">        
+       
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Site still under creation
