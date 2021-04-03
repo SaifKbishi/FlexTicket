@@ -1,19 +1,23 @@
 import React from 'react'
-import './App.css';
+import '../App.css';
+import '../css/tickets.css';
 import {Link} from 'react-router-dom'
 
 function NavBar() {
   return (
     <nav className="App">
       <h1>Logo</h1>
-      {/* <ul className="nav-links">
-        <Link to="/about">
-          <li>About</li>
+      <ul className="nav-links">
+        <Link to="/AllEvents">
+          <li>Home Page</li>
         </Link>
-        <Link to="/shop">
-          <li>Shop</li>
+        <Link to="/About-us">
+          <li>About-us</li>
         </Link>
-      </ul> */}
+        <Link to="/Contact">
+          <li>Contact-us</li>
+        </Link>
+      </ul>
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 //
 // pages with React Router:  
-// Home page, Choose seats/ tickets, Basket, Register, Confirmation  
+// Home page, Choose seats/ tickets, Basket, Register, Confirmation, About, Contact
 //  
 // Components:  
 // Event Card, Events page, Category , Register Form, Payment Details, Confirmation, Basket  
