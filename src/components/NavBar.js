@@ -19,6 +19,9 @@ const NavBar =()=> {
         <Link to="/UserDetails">
           <li>Register / Login</li>
         </Link>
+        <Link to="/GenresCarousel">
+          <li>Genres Carousel</li>
+        </Link>
       </ul>
     </nav>
   );

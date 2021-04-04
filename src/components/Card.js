@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+// import React from 'react'
 import '../css/tickets.css';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 const Card=(props)=>{
  //console.log(props)
+
+ useEffect(() => {
+  console.log('i only run once');
+  console.log(props);
+
+ }, []);//useEffect
+
   return (
    console.log(props),
    <div className="Card">

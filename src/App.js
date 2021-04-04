@@ -34,15 +34,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Site still under creation
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Buy a Ticket
-        </a>
+        </p>      
       </header>
 
     </div>

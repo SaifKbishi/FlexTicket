@@ -46,9 +46,16 @@ body{
 .UserDetails{
  display: flex; 
  flex-direction: column;
- justify-content: center;
- width: 260px;
+ justify-content: center; 
  align-items: center;
+}
+.registerForm .formError{
+ background: whitesmoke;
+ color: red;
+ display: flex;
+}
+.registerForm{
+ max-width: 260px;
 }
 .registerForm > *{
  margin: 2px 0px;

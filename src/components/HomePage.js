@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from './Card';
 import GenresCarousel from './GenresCarousel';
 
+
 import '../css/tickets.css';
 
 const HomePage = () => {
@@ -19,7 +20,7 @@ const HomePage = () => {
  }, []);//useEffect
 
  const renderEvents = results.map((event)=>{
-  return(
+  return(   
    <Card 
     eventTitle={event.title}
     eventId={event.id}
