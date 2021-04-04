@@ -21,7 +21,7 @@ const HomePage = () => {
 
  const renderEvents = results.map((event)=>{
   return(   
-   <Card 
+   <Card key={event.id}
     eventTitle={event.title}
     eventId={event.id}
     release_date={event.release_date}
