@@ -19,14 +19,16 @@ const HomePage = () => {
  }, []);//useEffect
 
  const renderEvents = results.map((event)=>{
+  // let tilte= encodeURI(`${event.title}`);
   return(   
-   <Link to={`/movies/${event.id}`}>
+   // <Link to={`/movies/${tilte}`}>
+   <Link key={event.id} to={`/movies/${event.id}`}>
    <Card key={event.id}
     eventTitle={event.title}
     eventId={event.id}
     release_date={event.release_date}
     poster_path={event.poster_path}
-   />
+   />   
    </Link>
   );
  });
@@ -36,7 +38,6 @@ const HomePage = () => {
    // console.log('28',results),
    <div className="eventsContent" >     
     {/* <h1>hello from HomePage, here will go a carusel</h1> */}
-    <h1></h1>
     <GenresCarousel/>
     <br/>
     <div className="cardsWrapper">
