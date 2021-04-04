@@ -7,7 +7,7 @@ const NavBar =()=> {
     <nav className="navBar">
       <h1>Logo</h1>
       <ul className="nav-links">
-        <Link to="/AllEvents">
+        <Link to="/movies">
           <li>Home Page</li>
         </Link>
         <Link to="/About-us">
@@ -19,9 +19,9 @@ const NavBar =()=> {
         <Link to="/UserDetails">
           <li>Register / Login</li>
         </Link>
-        <Link to="/GenresCarousel">
+        {/* <Link to="/GenresCarousel">
           <li>Genres Carousel</li>
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

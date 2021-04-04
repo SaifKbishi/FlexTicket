@@ -78,7 +78,7 @@ width: 166px;
 /*GenresCarousel*/
 .genresWrapper{
  display: flex;
- /* overflow-x: scroll; */
+ overflow-x: scroll;
 }
 .GenreCard{
  border: 1px solid #FFF;
@@ -86,4 +86,17 @@ width: 166px;
  margin: 0 5px;
  width: 150px;
  height: 150px;
+}
+
+/*MovieDetails*/
+.movieContent{
+ display: flex;
+ width: 80%;
+}
+.mdPoster{
+ width: 300px;
+}
+.mdContent{
+ padding: 20px;
+ text-align: left;
 }

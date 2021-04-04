@@ -7,7 +7,7 @@ import GenreCard from './GenreCard';
 const GenresCarousel =()=> {
  const [genres, setGenres] = useState([]); 
  useEffect(() => {
-  console.log('i only run once GenresCarousel');
+//   console.log('i only run once GenresCarousel');
   
   const genresFetch = async ()=>{
    const {data} = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US`);
@@ -26,9 +26,9 @@ const GenresCarousel =()=> {
  });//renderGenres
 
   return (   
-   console.log('20 GenresCarousel',genres),
+   // console.log('20 GenresCarousel',genres),
     <div className="genres">
-     hello from GenresCarousel
+     {/* hello from GenresCarousel */}
      <div className="genresWrapper">
       {renderGenres}
      </div>

@@ -15,8 +15,8 @@
 // search people by query  
 // https://api.themoviedb.org/3/search/person?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US&query=Milla%20Jovovich&page=1&include_adult=false  
 //  
-//  
-//  
+//  get movie details
+//  https://api.themoviedb.org/3/movie/{movie_id}?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US
 //  
 //  
 //  

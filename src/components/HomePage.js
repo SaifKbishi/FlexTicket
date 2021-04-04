@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'; 
 import Card from './Card';
 import GenresCarousel from './GenresCarousel';
-
-
+import {Link} from 'react-router-dom'
 import '../css/tickets.css';
 
 const HomePage = () => {
@@ -21,12 +20,14 @@ const HomePage = () => {
 
  const renderEvents = results.map((event)=>{
   return(   
+   <Link to={`/movies/${event.id}`}>
    <Card key={event.id}
     eventTitle={event.title}
     eventId={event.id}
     release_date={event.release_date}
     poster_path={event.poster_path}
    />
+   </Link>
   );
  });
 
@@ -34,7 +35,8 @@ const HomePage = () => {
    document.title="FlexTickets - Home Page",
    // console.log('28',results),
    <div className="eventsContent" >     
-    <h1>hello from HomePage, here will go a carusel</h1>
+    {/* <h1>hello from HomePage, here will go a carusel</h1> */}
+    <h1></h1>
     <GenresCarousel/>
     <br/>
     <div className="cardsWrapper">

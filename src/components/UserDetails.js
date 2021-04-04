@@ -1,5 +1,6 @@
 // import React, {useState, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
+// import Input from './Input';
 import '../css/tickets.css';
 
 const UserDetails = () => {
@@ -13,6 +14,7 @@ const UserDetails = () => {
    <div className="UserDetails" >     
     hello from UserDetails
    <form onSubmit={handleSubmit(onSubmit)} className="registerForm">
+    {/* <Input /> */}
     <input type="text" placeholder="First name" {...register("firstName", { required: true, minLength:2, maxLength: 20 })}/>
     <span className="formError">{errors.firstName && "First name is required"}</span>
     <input type="text" placeholder="Last name" name="lastname" {...register("lastname", { required: true, minLength:2, maxLength: 20 })}/>

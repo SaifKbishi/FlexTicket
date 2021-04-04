@@ -9,6 +9,7 @@ import SelectTickets from './components/SelectTickets';
 import UserDetails from './components/UserDetails';
 import Basket from './components/Basket';
 import Confirmation from './components/Confirmation';
+import MovieDetails from './components/MovieDetails';
 
 
 import logo from './logo.svg';
@@ -22,14 +23,15 @@ function App() {
     <div className="App">
       <NavBar/>
       <Switch>
-        <Route path="/About-us" component={About}/>
-        <Route path="/" component={HomePage}/>
-        {/* <Route path="/AllEvents" component={HomePage}/> */}
-        <Route path="/SelectTickets" component={SelectTickets}/>
-        <Route path="/UserDetails" component={UserDetails}/>
-        <Route path="/Basket" component={Basket}/>
-        <Route path="/Confirmation" component={Confirmation}/>
-        <Route path="/Contact" component={Contact}/>
+        <Route path="/about-us" component={About}/>
+        <Route path="/movies" exact component={HomePage}/>
+        <Route path="/movies/:id" component={MovieDetails}/>
+        {/* <Route path="/" component={HomePage}/> */}
+        <Route path="/selecttickets" component={SelectTickets}/>
+        <Route path="/userdetails" component={UserDetails}/>
+        <Route path="/basket" component={Basket}/>
+        <Route path="/confirmation" component={Confirmation}/>
+        <Route path="/contact" component={Contact}/>
       </Switch>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
