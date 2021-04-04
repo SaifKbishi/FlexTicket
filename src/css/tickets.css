@@ -73,3 +73,17 @@ width: 166px;
 .registerForm hr{
  width: 260px;
 }
+
+
+/*GenresCarousel*/
+.genresWrapper{
+ display: flex;
+ /* overflow-x: scroll; */
+}
+.GenreCard{
+ border: 1px solid #FFF;
+ padding: 0px 5px;
+ margin: 0 5px;
+ width: 150px;
+ height: 150px;
+}

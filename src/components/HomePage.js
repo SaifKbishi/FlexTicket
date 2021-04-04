@@ -9,7 +9,7 @@ import '../css/tickets.css';
 const HomePage = () => {
  const [results, setResults] = useState([]); 
  useEffect(() => {
-  console.log('i only run once');
+  console.log('i only run once from homepage');
 
   const moviesFetch = async ()=>{
    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US&page=1`);
@@ -32,7 +32,7 @@ const HomePage = () => {
 
   return (
    document.title="FlexTickets - Home Page",
-   console.log('28',results),
+   // console.log('28',results),
    <div className="eventsContent" >     
     <h1>hello from HomePage, here will go a carusel</h1>
     <GenresCarousel/>

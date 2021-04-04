@@ -21,18 +21,18 @@ const UserDetails = () => {
     <span className="formError">{errors.email && "E-mail is required to send you confirmation"}</span>
     <input type="number" placeholder="Cell Phone" name="cellphone" {...register("cellphone", { required: true})}/>
     <span className="formError">{errors.cellphone && "Cell Phone is required"}</span>
-    <label for="birthday">Birthday:  </label>
+    <label htmlFor="birthday">Birthday:  </label>
     <input type="date" placeholder="Birthday" name="birthday" {...register("birthday", { required: true})}/>
     <span className="formError">{errors.birthday && "Birthday is required"}</span>
     <hr/>
     <input type="number" placeholder="ID" name="ID" {...register("id", { required: true})}/>
     <span className="formError">{errors.id && "ID is required"}</span>
     <input type="number" placeholder="CC number" name="CC" {...register("CCnumber", { required: true, minLength:16, maxLength: 16})}/>
-    <span className="formError">{errors.CCnumber && "CC is required"}</span>
-    <input type="text" placeholder="CVV" name="cvv" {...register("CVV", { required: true, minLength:3, maxLength: 3})}/>
-    <span className="formError">{errors.CVV && "CVV is required"}</span>
+    <span className="formError">{errors.CCnumber && "CC is required and must be 16 digits"}</span>
+    <input type="text" placeholder="CVV 3 digits" name="cvv" {...register("CVV", { required: true, minLength:3, maxLength: 3})}/>
+    <span className="formError">{errors.CVV && "CVV is required, must be 3 digits"}</span>
 
-    <label for="epxDate">Expiry Date: </label>
+    <label htmlFor="epxDate">Expiry Date: </label>
     <input type="date" placeholder="Exp. Date" name="epxDate" {...register("epxDate", { required: true})}/>
     <span className="formError">{errors.epxDate && "Exp. Date is required"}</span>
     

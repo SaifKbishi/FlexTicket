@@ -23,7 +23,8 @@ function App() {
       <NavBar/>
       <Switch>
         <Route path="/About-us" component={About}/>
-        <Route path="/AllEvents" component={HomePage}/>
+        <Route path="/" component={HomePage}/>
+        {/* <Route path="/AllEvents" component={HomePage}/> */}
         <Route path="/SelectTickets" component={SelectTickets}/>
         <Route path="/UserDetails" component={UserDetails}/>
         <Route path="/Basket" component={Basket}/>
