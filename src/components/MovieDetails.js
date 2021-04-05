@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 import SelectTickets from './SelectTickets';
+import Basket from './Basket';
+import {Link} from 'react-router-dom';
 import '../css/tickets.css';
 
 const MovieDetails = ({match}) => {
@@ -32,10 +34,19 @@ const MovieDetails = ({match}) => {
     />    
     </div>
     <hr/>
-    <SelectTickets />
+    <div className="seatsAndBasket">
+      <SelectTickets />
+      <Basket/>
+    </div>
+    <Link to="/UserDetails">
+      <span>Register / Login</span>
+    </Link>
    </div>   
   );//return
 }
 export default MovieDetails;
 
-{/* <div></div> */}
+{/* <div></div>
+  <input type="button">Add To Basket</input>
+  <span>Add To Basket</span>
+ */}

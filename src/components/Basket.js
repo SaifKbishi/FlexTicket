@@ -4,7 +4,7 @@ import '../css/tickets.css';
 const Basket = () => {
 
   return (
-   document.title="Basket",
+   document.title="FlexTickets - Basket",
    <div className="App" >     
    hello from Basket
  

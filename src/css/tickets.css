@@ -138,10 +138,10 @@ width: 166px;
  position: absolute;
  background: green;
  font-size: 12px;
- width: 110px;
+ width: 130px;
  z-index: 1;
- left: 20px;
- top: -16px;
+ left: 23px;
+ top: -20px;
  border-radius: 5px;
  border: 1px solid #FFF;
  padding: 2px;
@@ -151,4 +151,12 @@ width: 166px;
 }
 .gray{
  background: gray;
+}
+
+.seatsAndBasket{
+ display: flex;
+ justify-content: center;
+}
+.basketItem{
+ margin: 3px 0;
 }

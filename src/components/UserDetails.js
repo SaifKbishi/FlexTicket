@@ -1,5 +1,6 @@
 // import React, {useState, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
+import {Link} from 'react-router-dom';
 // import Input from './Input';
 import '../css/tickets.css';
 
@@ -39,7 +40,9 @@ const UserDetails = () => {
     <span className="formError">{errors.epxDate && "Exp. Date is required"}</span>
     
     <br/>
-    <input type="submit"/>
+    <Link to="/Confirmation">
+      <input type="submit"/>
+    </Link>
    </form>
 
   </div>

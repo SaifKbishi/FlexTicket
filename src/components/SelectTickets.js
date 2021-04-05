@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+// import Basket from './Basket';
 import '../css/tickets.css';
 
 const SelectTickets = () => {
@@ -66,27 +67,84 @@ const SelectTickets = () => {
        {id:6_10, name:10, selected: false, value:25}],
     ]
   );
-  const handleClick = (id,index, sIndex)=>{
-    console.log('id:',id,' row:',index+1, ' seat:',sIndex+1 );
+
+  let [takenSeats, setTakenSeats] = useState([]);
+  let [total, setTotal] = useState(0);
+
+  const handleSeatSelection = (id,index, sIndex)=>{
+    console.log('id:',id,' row:',index+1, ' seat:',sIndex+1, 'taken: ',!selected[index][sIndex].selected );
     const newArray = [...selected];
     newArray[index][sIndex].selected = !newArray[index][sIndex].selected;
-    if(newArray[index][sIndex].selected) {newArray[index][sIndex].className='gray'}
+    if(newArray[index][sIndex].selected) {
+      newArray[index][sIndex].className='gray';
+    }    
     setSelected(newArray);
-  }
+    updateBasket(index, sIndex, selected[index][sIndex].selected);
+  }//handleSeatSelection
+
+  const handleRemoveItem = () => {
+    setSelected(
+      selected.filter(x=>{
+        return !takenSeats.includes(x);
+      })
+    );
+    // debugger;
+    // console.log(e.target.parentNode);    
+    // console.log('seat to remove',seat);    
+    // const id = e.target.getAttribute("id");
+    // console.log('86',id);
+    // updateBasket(takenSeats.filter(seat => seat.id !== id));
+  };//handleRemoveItem
+
+  const updateBasket = (index, sIndex, isTaken)=>{
+    let row=index+1, seat=sIndex+1;
+    let price= selected[index][sIndex].value;
+    console.log('80 ',row, seat, isTaken, price );
+    setTakenSeats([
+      ...takenSeats,
+      {
+        row,
+        seat,
+        price,
+        isTaken
+      }
+    ]);//setTakenSeats
+    if(isTaken){
+      setTotal(currentTotal => currentTotal + price);
+      console.log(total);
+    }else{
+      setTotal(currentTotal => currentTotal - price);
+      console.log(total);
+    }    
+  }//updateBasket
 
   return (
   document.title="SelectTickets",
   <div className="seatingPlan">
-  {selected.map((items, row) => {
+  {selected.map((items, row) => {    
     return (          
       <h4 className="row">
         <span>R{row+1}</span>
         {items.map((seat, sIndex) => {
-          return <li className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleClick(seat.id, row, sIndex)} data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free') }>{sIndex+1} </li>;
+          return <li className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
         })}
       </h4>
     );
   })}
+
+  <h5>Selected seats: {
+    takenSeats.map((seat)=>{
+      return(
+        <>
+        <span>
+        <p className="basketItem" >Row:{seat.row} Seat:{seat.seat} /  Price: {seat.price}ILS<span id={seat.id} onClick={(e,seat)=>handleRemoveItem(e,seat)}> X </span></p>        
+        </span>        
+        </>
+      );
+    })
+    }</h5>
+    <p>subTotal: {total}</p>
+    
 </div>
   );//return
 }//SelectTickets
