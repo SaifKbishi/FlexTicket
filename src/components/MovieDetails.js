@@ -25,11 +25,13 @@ const MovieDetails = ({match}) => {
   return (
    document.title=`FlexTickets - ${movie.original_title}`,
    <div>
-    <div className="movieContent">
+    <div key={movie.id} className="movieContent">
     <MovieCard 
       moviePoster={movie.poster_path}
       movieTilte={movie.original_title}
+      movieReleaseYear={movie.release_date}
       movieDuratrion={movie.runtime}
+      movieTagLine={movie.tagline}
       movieOverview={movie.overview}
     />    
     </div>

@@ -9,8 +9,9 @@ const MovieCard=(props)=>{
    <div><img className="mdPoster" src={`https://image.tmdb.org/t/p/w500/${props.moviePoster}`} alt="{movie.original_title}"/></div>     
    {/* <div><img className="mdPoster" src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="{movie.original_title}"/></div>      */}
    <div className="mdContent">     
-    <h1>{props.movieTilte}</h1>
+    <h1><b>{props.movieTilte}</b><span> ({(props.movieReleaseYear)})</span></h1> 
     <p>Duration: {props.movieDuratrion} minutes</p>
+    <h4>{props.movieTagLine}</h4>
     <h3>Overview</h3>
     <p>{props.movieOverview}</p>
    </div>        

@@ -1,105 +1,128 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import Basket from './Basket';
 import '../css/tickets.css';
+import axios from 'axios';
+const baseURL = "https://605b385827f0050017c068d1.mockapi.io/basket/basket";
 
 const SelectTickets = () => {
   let [selected, setSelected] = useState(
     [
-      [{id:1_1, name:1, selected: false, value:50},
-       {id:1_2, name:2, selected: false, value:50}, 
-       {id:1_3, name:3, selected: false, value:50},
-       {id:1_4, name:4, selected: false, value:50},
-       {id:1_5, name:5, selected: false, value:50},
-       {id:1_6, name:6, selected: false, value:50},
-       {id:1_7, name:7, selected: false, value:50},
-       {id:1_8, name:8, selected: false, value:50},
-       {id:1_9, name:9, selected: false, value:50},
-       {id:1_10, name:10, selected: false, value:50}],
-      [{id:2_1, name:1, selected: false, value:45},
-       {id:2_2, name:2, selected: false, value:45},
-       {id:2_3, name:3, selected: false, value:45},
-       {id:2_4, name:4, selected: false, value:45},
-       {id:2_5, name:5, selected: false, value:45},
-       {id:2_6, name:6, selected: false, value:45},
-       {id:2_7, name:7, selected: false, value:45},
-       {id:2_8, name:8, selected: false, value:45},
-       {id:2_9, name:9, selected: false, value:45},
-       {id:2_10, name:10, selected: false, value:45}],
-      [{id:3_1, name:1, selected: false, value:40},
-       {id:3_2, name:2, selected: false, value:40},
-       {id:3_3, name:3, selected: false, value:40},
-       {id:3_4, name:4, selected: false, value:40},
-       {id:3_5, name:5, selected: false, value:40},
-       {id:3_6, name:6, selected: false, value:40},
-       {id:3_7, name:7, selected: false, value:40},
-       {id:3_8, name:8, selected: false, value:40},
-       {id:3_9, name:9, selected: false, value:40},
-       {id:3_10, name:10, selected: false, value:40}],
-      [{id:4_1, name:1, selected: false, value:38},
-       {id:4_2, name:2, selected: false, value:38},
-       {id:4_3, name:3, selected: false, value:38},
-       {id:4_4, name:4, selected: false, value:38},
-       {id:4_5, name:5, selected: false, value:38},
-       {id:4_6, name:6, selected: false, value:38},
-       {id:4_7, name:7, selected: false, value:38},
-       {id:4_8, name:8, selected: false, value:38},
-       {id:4_9, name:9, selected: false, value:38},
-       {id:4_10, name:10, selected: false, value:38}],
-      [{id:5_1, name:1, selected: false, value:35},
-       {id:5_2, name:2, selected: false, value:35},
-       {id:5_3, name:3, selected: false, value:35},
-       {id:5_4, name:4, selected: false, value:35},
-       {id:5_5, name:5, selected: false, value:35},
-       {id:5_6, name:6, selected: false, value:35},
-       {id:5_7, name:7, selected: false, value:35},
-       {id:5_8, name:8, selected: false, value:35},
-       {id:5_9, name:9, selected: false, value:35},
-       {id:5_10, name:10, selected: false, value:35}],
-      [{id:6_1, name:1, selected: false, value:25},
-       {id:6_2, name:2, selected: false, value:25},
-       {id:6_3, name:3, selected: false, value:25},
-       {id:6_4, name:4, selected: false, value:25},
-       {id:6_5, name:5, selected: false, value:25},
-       {id:6_6, name:6, selected: false, value:25},
-       {id:6_7, name:7, selected: false, value:25},
-       {id:6_8, name:8, selected: false, value:25},
-       {id:6_9, name:9, selected: false, value:25},
-       {id:6_10, name:10, selected: false, value:25}],
+      [{id:11, name:1, selected: false, value:50},
+       {id:12, name:2, selected: false, value:50}, 
+       {id:13, name:3, selected: false, value:50},
+       {id:14, name:4, selected: false, value:50},
+       {id:15, name:5, selected: false, value:50},
+       {id:16, name:6, selected: false, value:50},
+       {id:17, name:7, selected: false, value:50},
+       {id:18, name:8, selected: false, value:50},
+       {id:19, name:9, selected: false, value:50},
+       {id:110, name:10, selected: false, value:50}],
+      [{id:21, name:1, selected: false, value:45},
+       {id:22, name:2, selected: false, value:45},
+       {id:23, name:3, selected: false, value:45},
+       {id:24, name:4, selected: false, value:45},
+       {id:25, name:5, selected: false, value:45},
+       {id:26, name:6, selected: false, value:45},
+       {id:27, name:7, selected: false, value:45},
+       {id:28, name:8, selected: false, value:45},
+       {id:29, name:9, selected: false, value:45},
+       {id:210, name:10, selected: false, value:45}],
+      [{id:31, name:1, selected: false, value:40},
+       {id:32, name:2, selected: false, value:40},
+       {id:33, name:3, selected: false, value:40},
+       {id:34, name:4, selected: false, value:40},
+       {id:35, name:5, selected: false, value:40},
+       {id:36, name:6, selected: false, value:40},
+       {id:37, name:7, selected: false, value:40},
+       {id:38, name:8, selected: false, value:40},
+       {id:39, name:9, selected: false, value:40},
+       {id:310, name:10, selected: false, value:40}],
+      [{id:41, name:1, selected: false, value:38},
+       {id:42, name:2, selected: false, value:38},
+       {id:43, name:3, selected: false, value:38},
+       {id:44, name:4, selected: false, value:38},
+       {id:45, name:5, selected: false, value:38},
+       {id:46, name:6, selected: false, value:38},
+       {id:47, name:7, selected: false, value:38},
+       {id:48, name:8, selected: false, value:38},
+       {id:49, name:9, selected: false, value:38},
+       {id:410, name:10, selected: false, value:38}],
+      [{id:51, name:1, selected: false, value:35},
+       {id:52, name:2, selected: false, value:35},
+       {id:53, name:3, selected: false, value:35},
+       {id:54, name:4, selected: false, value:35},
+       {id:55, name:5, selected: false, value:35},
+       {id:56, name:6, selected: false, value:35},
+       {id:57, name:7, selected: false, value:35},
+       {id:58, name:8, selected: false, value:35},
+       {id:59, name:9, selected: false, value:35},
+       {id:510, name:10, selected: false, value:35}],
+      [{id:61, name:1, selected: false, value:25},
+       {id:62, name:2, selected: false, value:25},
+       {id:63, name:3, selected: false, value:25},
+       {id:64, name:4, selected: false, value:25},
+       {id:65, name:5, selected: false, value:25},
+       {id:66, name:6, selected: false, value:25},
+       {id:67, name:7, selected: false, value:25},
+       {id:68, name:8, selected: false, value:25},
+       {id:69, name:9, selected: false, value:25},
+       {id:610, name:10, selected: false, value:25}],
     ]
   );
 
   let [takenSeats, setTakenSeats] = useState([]);
   let [total, setTotal] = useState(0);
+  let [basket, setBasket] = useState([]);
 
-  const handleSeatSelection = (id,index, sIndex)=>{
-    console.log('id:',id,' row:',index+1, ' seat:',sIndex+1, 'taken: ',!selected[index][sIndex].selected );
+  const handleSeatSelection = (id,index, sIndex, price)=>{
+    console.log('Selected Seat Details: id:',id,' row:',index+1, ' seat:',sIndex+1, ', taken: ',!selected[index][sIndex].selected, 'price:',price,'ILS');
+
     const newArray = [...selected];
     newArray[index][sIndex].selected = !newArray[index][sIndex].selected;
     if(newArray[index][sIndex].selected) {
       newArray[index][sIndex].className='gray';
     }    
     setSelected(newArray);
-    updateBasket(index, sIndex, selected[index][sIndex].selected);
+    updateBasket(index, sIndex, selected[index][sIndex].selected, price);
+    updateLSBasket(id, index, sIndex, selected[index][sIndex].selected, price);    
+     
   }//handleSeatSelection
+  const updateLSBasket = (id, index, sIndex, isTaken, price)=>{
+    let baksetObj ={};
+    baksetObj.id = id;
+    baksetObj.row = index+1;
+    baksetObj.seatNumber = sIndex+1;
+    baksetObj.status = isTaken;
+    baksetObj.price = price;
+    console.log('baksetObj: ',baksetObj);
+    
+    let arr = basket.concat(baksetObj);
+    setBasket(arr)
+    // setBasket(currentBasket => ({
+    //   ...currentBasket, baksetObj
+    // }));
+  }  
+  useEffect(()=>{
+    localStorage.setItem('basket', JSON.stringify(basket))
+  }, [basket]);
 
-  const handleRemoveItem = () => {
-    setSelected(
-      selected.filter(x=>{
-        return !takenSeats.includes(x);
-      })
-    );
-    // debugger;
-    // console.log(e.target.parentNode);    
-    // console.log('seat to remove',seat);    
-    // const id = e.target.getAttribute("id");
-    // console.log('86',id);
-    // updateBasket(takenSeats.filter(seat => seat.id !== id));
+  const handleRemoveItem = (e, seat,id) => {
+    //debugger;
+    console.log('88 id',id)
+   console.log(e.target.parentNode, 'price');
+   e.target.parentNode.remove();
+   // setTotal(currentTotal => currentTotal - price);
+  
+   console.log('seat to remove',seat);
+   // const id = e.target.getAttribute("id");
+   console.log('95',id);
+   // updateBasket(takenSeats.filter(seat => seat.id !== id));
   };//handleRemoveItem
 
-  const updateBasket = (index, sIndex, isTaken)=>{
+  const updateBasket = (index, sIndex, isTaken, price)=>{
     let row=index+1, seat=sIndex+1;
-    let price= selected[index][sIndex].value;
-    console.log('80 ',row, seat, isTaken, price );
+    // let price= selected[index][sIndex].value;
+    console.log('80 ',row, seat, isTaken, price );    
     setTakenSeats([
       ...takenSeats,
       {
@@ -119,29 +142,35 @@ const SelectTickets = () => {
   }//updateBasket
 
   return (
-  document.title="SelectTickets",
+  document.title="Flex - SelectTickets",
   <div className="seatingPlan">
   {selected.map((items, row) => {    
     return (          
-      <h4 className="row">
+      <h4 key={items.id} className="row">
         <span>R{row+1}</span>
         {items.map((seat, sIndex) => {
-          return <li className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
+          return <li key={seat.id} className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
         })}
       </h4>
     );
   })}
 
-  <h5>Selected seats: {
+  <h5 >Selected seats: {
     takenSeats.map((seat)=>{
-      return(
+      // console.log('134',seat)
+      if(seat.isTaken){
+       return(
         <>
-        <span>
-        <p className="basketItem" >Row:{seat.row} Seat:{seat.seat} /  Price: {seat.price}ILS<span id={seat.id} onClick={(e,seat)=>handleRemoveItem(e,seat)}> X </span></p>        
-        </span>        
+         <span>
+          <p className="basketItem" id={seat.id}>Row:{seat.row} Seat:{seat.seat} /  Price: {seat.price}ILS<span variant="outline-danger" id={seat.seat} onClick={(e, seat,id)=>handleRemoveItem(e, seat,id)}> X</span></p>        
+         </span>        
         </>
-      );
-    })
+       );
+      }else{
+       console.log('should remove the line from the basket')
+      }
+       
+     })
     }</h5>
     <p>subTotal: {total}</p>
     
