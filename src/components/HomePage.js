@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import '../css/tickets.css';
 
 const HomePage = () => {
- const [results, setResults] = useState([]); 
+ const [results, setResults] = useState([]);
  useEffect(() => {
   console.log('i only run once from homepage');
 

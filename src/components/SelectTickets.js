@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 // import Basket from './Basket';
 import '../css/tickets.css';
-import axios from 'axios';
-const baseURL = "https://605b385827f0050017c068d1.mockapi.io/basket/basket";
+// import axios from 'axios';
+// const baseURL = "https://605b385827f0050017c068d1.mockapi.io/basket/basket";
 // localStorage.setItem('basket', JSON.stringify([]));
 const SelectTickets = () => {
   const [selected, setSelected] = useState(
@@ -77,38 +77,26 @@ const SelectTickets = () => {
 
   const handleSeatSelection = (id,index, sIndex, price)=>{
     console.log('Selected Seat Details: id:',id,' row:',index+1, ' seat:',sIndex+1, ', taken: ',!selected[index][sIndex].selected, 'price:',price,'ILS');
-
+// debugger;
     const newArray = [...selected];
     newArray[index][sIndex].selected = !newArray[index][sIndex].selected;
     if(newArray[index][sIndex].selected) {
       newArray[index][sIndex].className='gray';
-    }
+    }else{newArray[index][sIndex].className='blue';}
     setSelected(newArray);
     updateBasket(index, sIndex, selected[index][sIndex].selected, price);
     updateLSBasket(id, index, sIndex, selected[index][sIndex].selected, price);     
   }//handleSeatSelection
 
 useEffect(()=>{
-let restore = JSON.parse(localStorage.getItem('basket')) || [];
-console.log('resotre',restore);
-// debugger;
-console.log(selected);
-
-// const helper = 
-// selected.map((item)=>{
-//   return item.map((element)=>{
-//     return element.id
-//   })
-// })
-// .flat();
-// console.log(helper);
-
-restore = restore.map((elem)=>{
-  return elem.id;
-})
-setRestore(restore);
-console.log('108', restore)
-
+  let restore = JSON.parse(localStorage.getItem('basket')) || [];
+  console.log('resotre',restore);
+  console.log(selected);
+  restore = restore.map((elem)=>{
+    return elem.id;
+  })
+  setRestore(restore);
+  console.log('99', restore)
 },[]);
 
   const updateLSBasket = (id, index, sIndex, isTaken, price)=>{
@@ -118,34 +106,40 @@ console.log('108', restore)
     baksetObj.seatNumber = sIndex+1;
     baksetObj.status = isTaken;
     baksetObj.price = price;
+    setBasket(baksetObj);
     // debugger;
     console.log('baksetObj: ',baksetObj);
-    const helper = JSON.parse(localStorage.getItem('basket')) ||[]
-    helper.push(baksetObj);
-    localStorage.setItem('basket',JSON.stringify(helper));
-    console.log(helper);
-    setBasket(baksetObj);
-
+    if(baksetObj.status){
+      const helper = JSON.parse(localStorage.getItem('basket')) ||[];
+      helper.push(baksetObj);
+      localStorage.setItem('basket',JSON.stringify(helper));
+      console.log('helper 115',helper);
+    }else{//add code here 2231
+      // debugger;
+      const helper2 = JSON.parse(localStorage.getItem('basket')) ||[];
+   
+      helper2.filter((elem)=>{ 
+        console.log('121',helper2);
+        let index = helper2.indexOf(elem);
+        helper2.splice(index, 1);
+        return elem.id !== id 
+      });      
+      setRestore(helper2);
+      localStorage.setItem('basket',JSON.stringify(helper2));
+    }    
+    
   }  //updateLSBasket
 
   useEffect(()=>{
-   console.log('basket has changed')
-   console.log(basket)
+   console.log('basket has changed', basket);
    if(basket.status){ //if selected a seat
      console.log('should add this seat to basket');
-     console.log('106 basket: ',basket);
-    // debugger;
     const currentBasket = JSON.parse(localStorage.getItem('basket'));
     currentBasket.push(basket); 
-    // basket=[];
-    // setBasket(currentBasket);
-    // localStorage.setItem('basket', JSON.stringify(currentBasket));
    }else{//unselect a seat
     console.log('should Remove this seat from basket.', 'basket: ',basket)
     const currentBasket = JSON.parse(localStorage.getItem('basket')) ||[];
     currentBasket.splice(basket.id, 1);
-    // localStorage.setItem('basket', JSON.stringify(currentBasket));
-// debugger;
    }   
   }, [basket]);
 

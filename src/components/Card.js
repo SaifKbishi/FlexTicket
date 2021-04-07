@@ -11,7 +11,7 @@ const Card=(props)=>{
     </div>
     <div>
      <div className="eventTitle"><h4>{props.eventTitle}</h4></div>
-     <div><h4>ID:{props.eventId}</h4></div>     
+     {/* <div><h4>ID:{props.eventId}</h4></div>      */}
      <div><h5>{props.release_date}</h5></div>
     </div>
    </div>

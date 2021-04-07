@@ -40,6 +40,7 @@ body{
  flex-wrap: wrap;
  justify-content: space-around;
  width: 80%;
+ margin: auto;
 }
 
 /*Registeration Form*/
@@ -86,6 +87,9 @@ width: 166px;
  margin: 0 5px;
  width: 150px;
  height: 150px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 /*MovieDetails*/
@@ -164,4 +168,7 @@ width: 166px;
 .deleteBtn{
  border: 2px solid #333;
  padding: 2px;
+}
+.ConfirmationLetter{
+ padding-top: 30px;
 }
