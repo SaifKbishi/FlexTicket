@@ -3,9 +3,9 @@ import React, {useEffect, useState} from 'react';
 import '../css/tickets.css';
 import axios from 'axios';
 const baseURL = "https://605b385827f0050017c068d1.mockapi.io/basket/basket";
-
+// localStorage.setItem('basket', JSON.stringify([]));
 const SelectTickets = () => {
-  let [selected, setSelected] = useState(
+  const [selected, setSelected] = useState(
     [
       [{id:11, name:1, selected: false, value:50},
        {id:12, name:2, selected: false, value:50}, 
@@ -70,9 +70,10 @@ const SelectTickets = () => {
     ]
   );
 
-  let [takenSeats, setTakenSeats] = useState([]);
-  let [total, setTotal] = useState(0);
-  let [basket, setBasket] = useState([]);
+  const [takenSeats, setTakenSeats] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [basket, setBasket] = useState([]);
+  const [restore, setRestore] = useState([]);
 
   const handleSeatSelection = (id,index, sIndex, price)=>{
     console.log('Selected Seat Details: id:',id,' row:',index+1, ' seat:',sIndex+1, ', taken: ',!selected[index][sIndex].selected, 'price:',price,'ILS');
@@ -81,12 +82,35 @@ const SelectTickets = () => {
     newArray[index][sIndex].selected = !newArray[index][sIndex].selected;
     if(newArray[index][sIndex].selected) {
       newArray[index][sIndex].className='gray';
-    }    
+    }
     setSelected(newArray);
     updateBasket(index, sIndex, selected[index][sIndex].selected, price);
-    updateLSBasket(id, index, sIndex, selected[index][sIndex].selected, price);    
-     
+    updateLSBasket(id, index, sIndex, selected[index][sIndex].selected, price);     
   }//handleSeatSelection
+
+useEffect(()=>{
+let restore = JSON.parse(localStorage.getItem('basket')) || [];
+console.log('resotre',restore);
+// debugger;
+console.log(selected);
+
+// const helper = 
+// selected.map((item)=>{
+//   return item.map((element)=>{
+//     return element.id
+//   })
+// })
+// .flat();
+// console.log(helper);
+
+restore = restore.map((elem)=>{
+  return elem.id;
+})
+setRestore(restore);
+console.log('108', restore)
+
+},[]);
+
   const updateLSBasket = (id, index, sIndex, isTaken, price)=>{
     let baksetObj ={};
     baksetObj.id = id;
@@ -94,25 +118,45 @@ const SelectTickets = () => {
     baksetObj.seatNumber = sIndex+1;
     baksetObj.status = isTaken;
     baksetObj.price = price;
+    // debugger;
     console.log('baksetObj: ',baksetObj);
-    
-    let arr = basket.concat(baksetObj);
-    setBasket(arr)
-    // setBasket(currentBasket => ({
-    //   ...currentBasket, baksetObj
-    // }));
-  }  
+    const helper = JSON.parse(localStorage.getItem('basket')) ||[]
+    helper.push(baksetObj);
+    localStorage.setItem('basket',JSON.stringify(helper));
+    console.log(helper);
+    setBasket(baksetObj);
+
+  }  //updateLSBasket
+
   useEffect(()=>{
-    localStorage.setItem('basket', JSON.stringify(basket))
+   console.log('basket has changed')
+   console.log(basket)
+   if(basket.status){ //if selected a seat
+     console.log('should add this seat to basket');
+     console.log('106 basket: ',basket);
+    // debugger;
+    const currentBasket = JSON.parse(localStorage.getItem('basket'));
+    currentBasket.push(basket); 
+    // basket=[];
+    // setBasket(currentBasket);
+    // localStorage.setItem('basket', JSON.stringify(currentBasket));
+   }else{//unselect a seat
+    console.log('should Remove this seat from basket.', 'basket: ',basket)
+    const currentBasket = JSON.parse(localStorage.getItem('basket')) ||[];
+    currentBasket.splice(basket.id, 1);
+    // localStorage.setItem('basket', JSON.stringify(currentBasket));
+// debugger;
+   }   
   }, [basket]);
 
-  const handleRemoveItem = (e, seat,id) => {
+   const handleRemoveItem = (e, seat,id) => {
+  //    console.log(e, seat, id)
+  //  }
     //debugger;
     console.log('88 id',id)
    console.log(e.target.parentNode, 'price');
    e.target.parentNode.remove();
-   // setTotal(currentTotal => currentTotal - price);
-  
+   // setTotal(currentTotal => currentTotal - price);  
    console.log('seat to remove',seat);
    // const id = e.target.getAttribute("id");
    console.log('95',id);
@@ -149,7 +193,8 @@ const SelectTickets = () => {
       <h4 key={items.id} className="row">
         <span>R{row+1}</span>
         {items.map((seat, sIndex) => {
-          return <li key={seat.id} className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
+          // return <li key={seat.id} className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
+          return <li key={seat.id} className={'seatNumber '+ (restore.includes(seat.id) || seat.selected ? 'gray' : 'blue') } onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
         })}
       </h4>
     );

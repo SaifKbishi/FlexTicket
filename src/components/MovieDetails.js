@@ -9,8 +9,8 @@ import '../css/tickets.css';
 const MovieDetails = ({match}) => {
  const [movie, setMovie] = useState([]); 
  useEffect(() => {
-  console.log('i only run once from MovieDetails');
-  console.log('10 match',match)
+  // console.log('i only run once from MovieDetails');
+  // console.log('10 match',match)
 
   const moviesFetch = async ()=>{
    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US`);
