@@ -30,12 +30,6 @@ function App() {
         <Route path="/confirmation" component={Confirmation}/>
         <Route path="/contact" component={Contact}/>
       </Switch>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Site still under creation
-        </p>      
-      </header> */}
     </div>
     </BrowserRouter>
   );

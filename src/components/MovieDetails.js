@@ -7,21 +7,21 @@ import {Link} from 'react-router-dom';
 import '../css/tickets.css';
 
 const MovieDetails = ({match}) => {
- const [movie, setMovie] = useState([]); 
- useEffect(() => {
-  // console.log('i only run once from MovieDetails');
-  // console.log('10 match',match)
+ const [movie, setMovie] = useState([]);
 
+ useEffect(() => {
   const moviesFetch = async ()=>{
    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US`);
    setMovie(data);
   };//moviesFetch function
   moviesFetch();
- }, []);//useEffect
+ });//useEffect
+
   /**
    * need to add more details on the movies
    * {movie.genres.forEach(genre => <h6>{genre.name}</h6>)}
    */
+
   return (
    document.title=`FlexTickets - ${movie.original_title}`,
    <div>
@@ -47,8 +47,3 @@ const MovieDetails = ({match}) => {
   );//return
 }
 export default MovieDetails;
-
-{/* <div></div>
-  <input type="button">Add To Basket</input>
-  <span>Add To Basket</span>
- */}

@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
-// import Basket from './Basket';
 import '../css/tickets.css';
 // import axios from 'axios';
-// const baseURL = "https://605b385827f0050017c068d1.mockapi.io/basket/basket";
-// localStorage.setItem('basket', JSON.stringify([]));
 const SelectTickets = () => {
   const [selected, setSelected] = useState(
     [
@@ -89,14 +86,11 @@ const SelectTickets = () => {
   }//handleSeatSelection
 
 useEffect(()=>{
-  let restore = JSON.parse(localStorage.getItem('basket')) || [];
-  console.log('resotre',restore);
-  console.log(selected);
+  let restore = JSON.parse(localStorage.getItem('basket')) || [];  
   restore = restore.map((elem)=>{
     return elem.id;
   })
   setRestore(restore);
-  console.log('99', restore)
 },[]);
 
   const updateLSBasket = (id, index, sIndex, isTaken, price)=>{
@@ -126,8 +120,7 @@ useEffect(()=>{
       });      
       setRestore(helper2);
       localStorage.setItem('basket',JSON.stringify(helper2));
-    }    
-    
+    }
   }  //updateLSBasket
 
   useEffect(()=>{
@@ -144,23 +137,13 @@ useEffect(()=>{
   }, [basket]);
 
    const handleRemoveItem = (e, seat,id) => {
-  //    console.log(e, seat, id)
-  //  }
-    //debugger;
     console.log('88 id',id)
-   console.log(e.target.parentNode, 'price');
-   e.target.parentNode.remove();
-   // setTotal(currentTotal => currentTotal - price);  
-   console.log('seat to remove',seat);
-   // const id = e.target.getAttribute("id");
-   console.log('95',id);
-   // updateBasket(takenSeats.filter(seat => seat.id !== id));
+    console.log(e.target.parentNode, 'price');
+    e.target.parentNode.remove();
   };//handleRemoveItem
 
   const updateBasket = (index, sIndex, isTaken, price)=>{
-    let row=index+1, seat=sIndex+1;
-    // let price= selected[index][sIndex].value;
-    console.log('80 ',row, seat, isTaken, price );    
+    let row=index+1, seat=sIndex+1;  
     setTakenSeats([
       ...takenSeats,
       {
@@ -183,8 +166,9 @@ useEffect(()=>{
   document.title="Flex - SelectTickets",
   <div className="seatingPlan">
   {selected.map((items, row) => {    
-    return (          
-      <h4 key={items.id} className="row">
+    // debugger;
+    return (
+      <h4 key={selected.indexOf(items)} className="row">
         <span>R{row+1}</span>
         {items.map((seat, sIndex) => {
           // return <li key={seat.id} className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
@@ -196,7 +180,6 @@ useEffect(()=>{
 
   <h5 >Selected seats: {
     takenSeats.map((seat)=>{
-      // console.log('134',seat)
       if(seat.isTaken){
        return(
         <>
@@ -206,7 +189,8 @@ useEffect(()=>{
         </>
        );
       }else{
-       console.log('should remove the line from the basket')
+       console.log('should remove the line from the basket');
+       return <span> </span>
       }
        
      })

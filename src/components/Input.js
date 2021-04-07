@@ -9,7 +9,6 @@ const Input=(props)=>{
     <span>
       <input type={props.inputType}
         placeholder={props.placeholder}
-        registerObj={props.register}
       />
       <span className="formError">
        {props.errField && props.errMsg }

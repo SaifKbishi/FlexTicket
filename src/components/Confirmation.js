@@ -25,10 +25,10 @@ const Confirmation = () => {
      );
    })}
 
-{/*  
+ 
    <Link to="/movies">
       <input type="submit">Countinue shopping</input>
-    </Link> */}
+    </Link>
   </div>
   );
 }
