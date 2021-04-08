@@ -73,6 +73,8 @@ body{
 .registerForm > input,
 .registerForm >span> input{
  width: 260px;
+ border-radius: 5px;
+ padding: 10px;
 }
 
 .registerForm> [name='birthday']{

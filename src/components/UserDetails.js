@@ -8,7 +8,7 @@ const UserDetails = () => {
  const {register, handleSubmit, formState: { errors }} = useForm();
 
  const onSubmit =(data)=>{
-   data.preventDefault();
+  
 
  }
   return (
