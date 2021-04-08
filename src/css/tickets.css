@@ -199,6 +199,11 @@ width: 166px;
  border-radius: 5px;
  padding: 10px 30px;
 }
+.AddTickets{
+ border: 1px solid #fff;
+border-radius: 5px;
+padding: 10px 30px;
+}
 
 @media only screen and (max-width: 400px){
  .seatingPlan{ 
@@ -216,9 +221,5 @@ width: 166px;
  .seatInBasket{
   margin-top: 20px;
  }
- .AddTickets{
-  border: 1px solid #fff;
- border-radius: 5px;
- padding: 10px 30px;
- }
+
 }
