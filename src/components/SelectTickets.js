@@ -155,30 +155,29 @@ useEffect(()=>{
     ]);//setTakenSeats
     if(isTaken){
       setTotal(currentTotal => currentTotal + price);
-      console.log(total);
     }else{
       setTotal(currentTotal => currentTotal - price);
-      console.log(total);
     }    
   }//updateBasket
 
   return (
   document.title="Flex - SelectTickets",
   <div className="seatingPlan">
-  {selected.map((items, row) => {    
-    // debugger;
-    return (
-      <h4 key={selected.indexOf(items)} className="row">
-        <span>R{row+1}</span>
-        {items.map((seat, sIndex) => {
-          // return <li key={seat.id} className={'seatNumber '+ (seat.selected? 'gray' : 'blue')} onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
-          return <li key={seat.id} className={'seatNumber '+ (restore.includes(seat.id) || seat.selected ? 'gray' : 'blue') } onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
-        })}
-      </h4>
-    );
-  })}
-
-  <h5 >Selected seats: {
+    <div className="rowsANDseats">
+      {selected.map((items, row) => { 
+        return (
+          <h4 key={selected.indexOf(items)} className="row">
+            <span>R{row+1}</span>
+              {items.map((seat, sIndex) => {
+              return <li key={seat.id} className={'seatNumber '+ (restore.includes(seat.id) || seat.selected ? 'gray' : 'blue') } onClick={()=>handleSeatSelection(seat.id, row, sIndex, seat.value)}  data-seat={'Row'+(row+1)+' / Seat'+(sIndex+1)+' '+(seat.selected? 'Taken' : 'Free')+' ' }>{sIndex+1} </li>;
+            })}
+          </h4>
+        );
+      })}
+    </div>
+    <div className="seatInBasket">
+    <h4 className="basketTilte">Selected seats:</h4>
+    <h5 > {
     takenSeats.map((seat)=>{
       if(seat.isTaken){
        return(
@@ -196,7 +195,7 @@ useEffect(()=>{
      })
     }</h5>
     <p>subTotal: {total}</p>
-    
+    </div>    
 </div>
   );//return
 }//SelectTickets

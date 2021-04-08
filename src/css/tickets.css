@@ -10,6 +10,11 @@ body{
  margin: 0px 0px 5px 0px;
  background: skyblue;
 }
+.logo{
+ z-index: 1;
+ width: 90px;
+ padding: 5px;
+}
 .navBar ul{
  display: flex;
  list-style: none;
@@ -110,7 +115,8 @@ width: 166px;
 /*Seating Plan*/
 .seatingPlan{
  display: flex;
- flex-direction: column;
+ flex-direction: row;
+ justify-content: space-around;
  margin: 10px;
  padding: 10px;
  font-size: 20px;
@@ -165,6 +171,10 @@ width: 166px;
 .basketItem{
  margin: 3px 0;
 }
+.basketTilte{
+ text-decoration: underline;
+}
+
 
 .deleteBtn{
  border: 2px solid #333;
@@ -172,4 +182,8 @@ width: 166px;
 }
 .ConfirmationLetter{
  padding-top: 30px;
+}
+
+.seatInBasket{
+ width: 400px;
 }
