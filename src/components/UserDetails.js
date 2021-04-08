@@ -8,13 +8,13 @@ const UserDetails = () => {
  const {register, handleSubmit, formState: { errors }} = useForm();
 
  const onSubmit =(data)=>{
+  console.log(data);
   
-
  }
   return (
    document.title="FlexTickets - UserDetails",
    <div className="UserDetails" >     
-    hello from UserDetails
+    User Details
    <form onSubmit={handleSubmit(onSubmit)} className="registerForm">
   
     <input type="text" placeholder="First name" {...register("firstName", { required: true, minLength:2, maxLength: 20 })}/>
