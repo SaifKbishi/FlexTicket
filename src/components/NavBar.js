@@ -12,7 +12,7 @@ const NavBar =()=> {
         </Link>
       </span>
       <ul className="nav-links">
-        <Link to="/movies">
+        <Link to="/">
           <li>Home Page</li>
         </Link>
         <Link to="/About-us">

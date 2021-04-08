@@ -9,6 +9,7 @@ body{
  justify-content: space-between;
  margin: 0px 0px 30px 0px;
  background: skyblue;
+ padding-right: 2px
 }
 .logo{
  z-index: 1;
@@ -84,7 +85,6 @@ width: 166px;
  width: 259px;
 }
 
-
 /*GenresCarousel*/
 .genresWrapper{
  display: flex;
@@ -125,6 +125,7 @@ width: 166px;
  font-size: 20px;
  align-items: center;
 }
+
 .row{
  display: flex;
  margin: 5px;
@@ -170,6 +171,7 @@ width: 166px;
 .seatsAndBasket{
  display: flex;
  justify-content: center;
+ margin-bottom: 50px;
 }
 .basketItem{
  margin: 3px 0;
@@ -189,4 +191,32 @@ width: 166px;
 
 .seatInBasket{
  width: 400px;
+}
+.addToBasketBtn{
+ border: 1px solid #fff;
+ border-radius: 5px;
+ padding: 10px 30px;
+}
+
+@media only screen and (max-width: 400px){
+ .seatingPlan{ 
+  flex-direction: column;
+  padding: 10px 0 10px 10px;
+ }
+ .movieContent{
+  width: 95%;
+  flex-direction: column;
+  margin: auto;
+ }
+ .navBar ul{
+  display: none;
+ }
+ .seatInBasket{
+  margin-top: 20px;
+ }
+ .AddTickets{
+  border: 1px solid #fff;
+ border-radius: 5px;
+ padding: 10px 30px;
+ }
 }

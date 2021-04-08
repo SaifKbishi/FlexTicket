@@ -109,14 +109,17 @@ useEffect(()=>{
       localStorage.setItem('basket',JSON.stringify(helper));
       console.log('helper 115',helper);
     }else{//add code here 2231
-      // debugger;
+      debugger; 
       const helper2 = JSON.parse(localStorage.getItem('basket')) ||[];
    
       helper2.filter((elem)=>{ 
         console.log('121',helper2);
-        let index = helper2.indexOf(elem);
-        helper2.splice(index, 1);
-        return elem.id !== id 
+        if(elem.id ===id){
+          let index = helper2.indexOf(elem);
+          helper2.splice(index, 1);
+        }
+        
+        return elem.id !== id;
       });      
       setRestore(helper2);
       localStorage.setItem('basket',JSON.stringify(helper2));

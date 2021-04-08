@@ -45,7 +45,7 @@ const HomePage = () => {
     
     {/* *************** */}
     
-    <button>Add to basket</button>
+    <button class="addToBasketBtn">Add to basket</button>
     
    </div>
   );//

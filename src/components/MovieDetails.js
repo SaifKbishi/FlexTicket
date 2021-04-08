@@ -41,7 +41,7 @@ const MovieDetails = ({match}) => {
       {/* <Basket/> */}
     </div>
     <Link to="/UserDetails">
-      <span>Register / Login</span>
+      <span className="AddTickets">Add Tickets</span>
     </Link>
    </div>   
   );//return

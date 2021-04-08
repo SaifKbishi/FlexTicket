@@ -20,10 +20,9 @@ function App() {
       <NavBar/>
       <Switch>
         <Route path="/about-us" component={About}/>
-        <Route path="/movies" exact component={HomePage}/>
+        <Route path="/" exact component={HomePage}/>
         {/* <Route path="/movies/:id" component={MovieDetails}/> */}
         <Route path="/movies/:id" component={MovieDetails}/>
-        {/* <Route path="/" component={HomePage}/> */}
         <Route path="/selecttickets" component={SelectTickets}/>
         <Route path="/userdetails" component={UserDetails}/>
         <Route path="/basket" component={Basket}/>
