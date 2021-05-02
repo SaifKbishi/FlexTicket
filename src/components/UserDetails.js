@@ -41,11 +41,11 @@ const UserDetails = () => {
     <span className="formError">{errors.epxDate && "Exp. Date is required"}</span>
     <br/>
 
-    {/* <input type="submit"/> */}
+    <input type="submit"/>
 
     <Link to="/Confirmation">
       {/* <input type="submit"/> */}
-      <input type="submit"/>
+      {/* <input type="submit"/> */}
     </Link>
    </form>
 

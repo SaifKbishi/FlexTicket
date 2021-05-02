@@ -1,6 +1,19 @@
+// React site to demo FlexTickets site
+// with dynamic pages according to event type
 //  
-// pages with React Router:  
-// Home page, Choose seats/ tickets, Basket, Register, Confirmation, About, Contact  
+//  
+// redirect from crm details to confirmation letter not completed
+// creation and sending PDF confirmation letter not completed
+// need to implement CRM login and profile
+// 
+// improvements i would like to do:
+// add DB of events
+// generes carosell
+// GA tickets
+// 
+// 
+// // pages with React Router:  
+// // Home page, Choose seats/ tickets, Basket, Register, Confirmation, About, Contact  
 //  
 // Components:  
 // Event Card, Events page, Category , Register Form, Payment Details, Confirmation, Basket  
