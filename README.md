@@ -1,59 +1,15 @@
-// React site to demo FlexTickets site
-// with dynamic pages according to event type
-//  
-//  
-// redirect from crm details to confirmation letter not completed
-// creation and sending PDF confirmation letter not completed
-// need to implement CRM login and profile
-// 
-// improvements i would like to do:
-// add DB of events
-// generes carosell
-// GA tickets
-// 
-// 
-// // pages with React Router:  
-// // Home page, Choose seats/ tickets, Basket, Register, Confirmation, About, Contact  
-//  
-// Components:  
-// Event Card, Events page, Category , Register Form, Payment Details, Confirmation, Basket  
-//  
-//  
-// generes  
-// https://api.themoviedb.org/3/genre/movie/list?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US  
-//  
-// search movies by query:  
-// https://api.themoviedb.org/3/search/movie?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US&query=brave&page=1&include_adult=false  
-//  
-// search people by query  
-// https://api.themoviedb.org/3/search/person?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US&query=Milla%20Jovovich&page=1&include_adult=false  
-//  
-//  get movie details
-//  https://api.themoviedb.org/3/movie/{movie_id}?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US
-//  
-//  
-//  
-//
-//
-//
-//https://api.themoviedb.org/3/discover/movie?api_key=b1bbf2914e46c6c6812473913d2635b4&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=Adventure
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+## React site to demo FlexTickets site
+with dynamic pages according to event type  
+
+Using the https://www.themoviedb.org/ **API**  to fetch movies details witht he ability to filter by genere.  
+With ***React Router*** I have implemented these pages:  
+Home page, Choose seats/ tickets, Basket, Register, Confirmation, About, Contact  
+
+You can register as new user, select seats, add/remove seat from basket.  
+Basket gets updated depending on the current items in the basket.  
+All **CRUD** operations are done in the **LocalStorage**
+
+# Things I want to develop:  
+1. redirect from crm details to confirmation letter.  
+2. creation and sending PDF confirmation letter.  
+3. implement CRM login and profile.  
